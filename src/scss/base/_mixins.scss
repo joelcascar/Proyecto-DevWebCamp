@@ -46,3 +46,48 @@
     gap: $espaciado;
     grid-template-columns: repeat($columnas, 1fr);
 }
+
+@mixin contenedor{
+    // width: min(width, max-width);
+    width: min(95%, 140rem);
+    margin: 0 auto;
+}
+@mixin contenedor-sm{
+    width: min(95%, 60rem);
+    margin: 0 auto;
+}
+
+@mixin headings{
+    font-family: v.$fuente_principal;
+    font-weight: v.$black;
+    margin: 2rem 0;
+}
+
+@mixin nombre-pagina{
+    @include headings;
+    margin: 6rem 0 3rem 0;
+    text-align: center;
+}
+
+@mixin texto-fluido($min, $max){
+    font-size: clamp($min, -0.8rem + 10vw , $max);
+}
+
+@mixin texto-degradado($inicio, $final){
+    background: linear-gradient(to right, $inicio, $final);
+    // Primer forma de poner el texto transparente
+    // color: transparent;
+    // Segunda forma de poner el texto transparente
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@mixin logo{
+    color: v.$blanco;
+    text-align: center;
+    margin-bottom: 2rem;
+    @include desktop{
+        text-align: left;
+        margin: 0;
+    }
+}
