@@ -91,3 +91,44 @@
         margin: 0;
     }
 }
+
+@mixin menu-social($color, $size){
+    &__enlace{
+        &::before{
+            content: '';
+            color: $color;
+            font-size: $size;
+            display: inline-block;
+            // padding: 2rem;
+            // Modificamos la fuente de vectores
+            font-style: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            font-family: "Font Awesome 6 Brands";
+        }
+
+        &[href*="https://facebook.com"]::before{
+            content: "\f39e"; // es el código Unicode de awesome
+        }
+        &[href*="https://github.com"]::before {
+            content: "\f09b";
+        }
+
+        &[href*="https://tiktok.com"]::before {
+            content: "\e07b";
+        }
+        &[href*="https://instagram.com"]::before {
+            content: "\f16d";
+        }
+        &[href*="https://youtube.com"]::before {
+            content: "\f167";
+        }
+        &[href*="https://twitter.com"]::before {
+            content: "\f099";
+        }
+    }
+
+    &__ocultar{
+        display: none;
+    }
+}
