@@ -132,3 +132,21 @@
         display: none;
     }
 }
+
+@mixin enlace{
+    //  Primera opcion para quitar lo que no se requiere
+    all: unset;
+    // Estilos despues de dejarlo sin estilos
+    color: v.$blanco;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: v.$bold;
+    // Segunda opcion para quitar lo que no se requiere
+    // background-color: transparent;
+    // border: none;
+
+    &:hover{
+        color: v.$azul;
+        cursor: pointer;
+    }
+}
