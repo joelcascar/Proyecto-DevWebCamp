@@ -27,10 +27,10 @@
 </fieldset>
 
 <fieldset class="formulario__fieldset">
-    <legend class="formulario__legend">Información Personal</legend>
+    <legend class="formulario__legend">Información Extra</legend>
     <div class="formulario__campo">
         <label class="formulario__label" for="tags_input">Áreas de experiencia (separadas por coma).</label>
-        <input type="text" class="formulario__input" id="tags_input" placeholder="Ej. Node.js, PHP, CSS, Lavaravel, UX / UI">
+        <input type="text" class="formulario__input" id="tags_input" placeholder="Ej. Node.js, PHP, CSS, Laravel, UX / UI">
         <div id="tags" class="formulario__listado"></div>
         <input type="hidden" name="tags" value="<?php echo $ponente->tags ?? ''; ?>">
     </div>

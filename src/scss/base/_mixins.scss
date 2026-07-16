@@ -160,3 +160,27 @@
 @mixin shadow{
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
+
+@mixin resetLista{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin tags{
+    @include resetLista;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+
+    > li{
+        background-color: v.$azul;
+        padding: 1rem;
+        border-radius: .5rem;
+        font-size: 1.4rem;
+        color: v.$blanco;
+        font-weight: v.$bold;
+    }
+    
+}

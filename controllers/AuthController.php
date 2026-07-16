@@ -30,14 +30,14 @@ class AuthController
 
                         // Iniciar la sesión
                         session_start();
-                        $_SESSION['id'] = $usuario->id;
-                        $_SESSION['nombre'] = $usuario->nombre;
-                        $_SESSION['apellido'] = $usuario->apellido;
-                        $_SESSION['email'] = $usuario->email;
+                        $_SESSION['id'] = $usuario->id ?? null;
+                        $_SESSION['nombre'] = $usuario->nombre ?? '';
+                        $_SESSION['apellido'] = $usuario->apellido ?? '';
+                        $_SESSION['email'] = $usuario->email ?? '';
                         $_SESSION['admin'] = $usuario->admin ?? null;
 
                         // Redireccionando al admin
-                        if ($usuario->admin) {
+                        if ($usuario->admin ?? null) {
                             header('location: /admin/dashboard');
                         } else {
                             header('location: /finalizar-registro');
