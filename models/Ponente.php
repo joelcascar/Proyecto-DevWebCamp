@@ -15,6 +15,8 @@ class Ponente extends ActiveRecord
     public $imagen;
     public $tags;
     public $redes;
+    // atributo temporal
+    public $imagen_actual;
 
     public function __construct($args = [])
     {
@@ -26,6 +28,7 @@ class Ponente extends ActiveRecord
         $this->imagen = $args['imagen'] ?? '';
         $this->tags = $args['tags'] ?? '';
         $this->redes = $args['redes'] ?? '';
+        $this->imagen_actual = $args['imagen_actual'] ?? '';
     }
 
     // Método para validar los ponentes
