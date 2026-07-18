@@ -140,6 +140,14 @@ class ActiveRecord
         return $resultado;
     }
 
+    // Método para paginar los registros
+    public static function paginar($por_pagina, $offset)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT $por_pagina OFFSET $offset;";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // Busqueda Where con Columna 
     public static function where($columna, $valor)
     {
@@ -147,6 +155,18 @@ class ActiveRecord
         $resultado = self::consultarSQL($query);
         return array_shift($resultado);
     }
+
+    // Traer un total de registros (solo numero)
+    public static function total()
+    {
+        $consulta = 'SELECT COUNT(*) FROM ' . static::$tabla . ';';
+        $resultado = self::$db->query($consulta);
+        $total = $resultado->fetch_assoc();
+        return array_shift($total);
+    }
+
+
+
 
     // crea un nuevo registro
     public function crear()

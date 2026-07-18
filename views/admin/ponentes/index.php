@@ -44,3 +44,5 @@
         <p class="text-center">No hay ponentes Aún</p>
     <?php } ?>
 </div>
+
+<?php echo $paginacion; ?>
