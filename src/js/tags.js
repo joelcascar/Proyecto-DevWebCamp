@@ -7,7 +7,7 @@
 
     let tags = [];
 
-    // Recuperar del inpu oculto
+    // Recuperar del input oculto
     if (tagsInputHidden.value !== "") {
       tags = tagsInputHidden.value.split(",");
       mostrarTags();
