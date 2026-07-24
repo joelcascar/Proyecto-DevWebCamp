@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "babel-loader": "^10.1.1",
+    "css-loader": "^7.1.4",
     "cssnano": "^5.1.10",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -26,6 +30,12 @@
     "gulp-terser-js": "^5.2.2",
     "gulp-webp": "^4.0.1",
     "sass": "^1.41.1",
-    "terser": "^5.14.2"
+    "style-loader": "^4.0.0",
+    "terser": "^5.14.2",
+    "webpack": "^5.109.0"
+  },
+  "dependencies": {
+    "swiper": "^8.3.2",
+    "webpack-stream": "^7.0.0"
   }
 }

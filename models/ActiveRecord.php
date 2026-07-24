@@ -156,6 +156,14 @@ class ActiveRecord
         return array_shift($resultado);
     }
 
+    // Método para ordenar los eventos por horas
+    public static function ordenar($columna, $orden)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY $columna $orden;";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // Busqueda WHERE con multiples columnas
     public static function whereArray($array = [])
     {

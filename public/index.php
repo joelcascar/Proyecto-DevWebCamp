@@ -7,6 +7,7 @@ use Controllers\APIPonentes;
 use Controllers\AuthController;
 use Controllers\DashboardController;
 use Controllers\EventosController;
+use Controllers\PaginasController;
 use Controllers\PonentesController;
 use Controllers\RegalosController;
 use Controllers\RegistradosController;
@@ -37,6 +38,7 @@ $router->get('/mensaje', [AuthController::class, 'mensaje']);
 $router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
 
 // Area de administración
+
 $router->get('/admin/dashboard', [DashboardController::class, 'index']);
 // Ponentes
 $router->get('/admin/ponentes', [PonentesController::class, 'index']);
@@ -61,6 +63,13 @@ $router->get('/api/ponente', [APIPonentes::class, 'ponente']);
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 // Regalos
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
+
+// Área pública
+$router->get('/', [PaginasController::class, 'index']);
+$router->get('/devwebcamp', [PaginasController::class, 'evento']);
+$router->get('/paquetes', [PaginasController::class, 'paquetes']);
+$router->get('/workshops-conferencias', [PaginasController::class, 'conferencias']);
+
 
 
 $router->comprobarRutas();
