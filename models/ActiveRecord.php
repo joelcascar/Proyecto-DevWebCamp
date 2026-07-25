@@ -106,7 +106,7 @@ class ActiveRecord
     public function guardar()
     {
         $resultado = '';
-        if (!is_null($this->id)) {
+        if (!is_null($this->id ?? null)) {
             // actualizar
             $resultado = $this->actualizar();
         } else {
@@ -186,9 +186,14 @@ class ActiveRecord
     }
 
     // Traer un total de registros (solo numero)
-    public static function total()
+    public static function total($columna = '', $valor = '')
     {
-        $consulta = 'SELECT COUNT(*) FROM ' . static::$tabla . ';';
+        $consulta = 'SELECT COUNT(*) FROM ' . static::$tabla;
+        if ($columna) {
+            $consulta .= " WHERE $columna = $valor;";
+        } else {
+            $consulta .= ";";
+        }
         $resultado = self::$db->query($consulta);
         $total = $resultado->fetch_assoc();
         return array_shift($total);
