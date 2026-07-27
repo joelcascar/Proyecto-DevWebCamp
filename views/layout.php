@@ -14,11 +14,15 @@
 </head>
 
 <body>
+    <script
+        src="https://sandbox.paypal.com/sdk/js?client-id=BAAJ7mcl-6GzunXyjLy-2xmkljxAtAAHQdi9VJmWp0mPCFWDUY5fx2rbQpnJwzQnSa2z8G8-N2HxZDFnfE&components=hosted-buttons&disable-funding=venmo&currency=MXN">
+    </script>
     <?php
     include_once __DIR__ . '/templates/header.php';
     echo $contenido ?? '';
     include_once __DIR__ . '/templates/footer.php';
     ?>
+
 
     <script src="https://kit.fontawesome.com/e4ca601ead.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>

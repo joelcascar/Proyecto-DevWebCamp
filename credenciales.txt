@@ -1,0 +1,13 @@
+// business
+
+// email
+sb-akub752246637@business.example.com
+// password
+4%Bi$G;*
+
+// personal
+// email
+sb-nxyl052010333@personal.example.com
+// password
+ZsF|6$Mv
+

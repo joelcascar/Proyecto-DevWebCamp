@@ -9,7 +9,12 @@
         @include m.grid(3,3rem);
         align-items: flex-start
        } 
-    }
+
+      }
+      &__submit{
+        @include m.boton(v.$azul, v.$blanco);
+        margin-top: 3rem;
+      }
 }
 
 .paquete{
@@ -34,4 +39,31 @@
     font-weight: v.$black;
     text-align: center;
    }
+}
+
+// Código para quitarle el heading y la descripcion a los botones de paypal
+
+#paypal-form-fields-container-JCFAE9FFDLQUJ .item-header,
+#paypal-form-fields-container-JCFAE9FFDLQUJ .item-description{
+  display: none!important;
+}
+#form-container-JCFAE9FFDLQUJ{
+  max-width: unset!important;
+}
+// Código para poner los inputs completos
+#checkout-button{
+  font-size: 1.5rem!important;
+}
+
+
+#paypal-form-fields-container-SDFBBHQW2TJ8G .item-header,
+#paypal-form-fields-container-SDFBBHQW2TJ8G .item-description{
+  display: none!important;
+}
+#form-container-SDFBBHQW2TJ8G{
+  max-width: unset!important;
+}
+// Código para poner los inputs completos
+#checkout-button{
+  font-size: 1.5rem!important;
 }
