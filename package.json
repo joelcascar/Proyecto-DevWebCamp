@@ -35,6 +35,7 @@
     "webpack": "^5.109.0"
   },
   "dependencies": {
+    "sweetalert2": "^11.26.25",
     "swiper": "^8.3.2",
     "webpack-stream": "^7.0.0"
   }

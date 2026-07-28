@@ -91,7 +91,8 @@
         @include m.boton(v.$azul, v.$blanco);
         width: auto;
         align-self: flex-start; // alinea el elemento sin depender del display: fl;ex; del padre
-        &--registrar{
+        &--registrar,
+        &--full{
             width: 100%;
         }
     }

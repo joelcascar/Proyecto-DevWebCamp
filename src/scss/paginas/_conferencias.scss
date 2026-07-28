@@ -75,6 +75,10 @@
         &:hover{
             background-color: darken(v.$azul, 10%);
         }
+        &--elegir{
+            @extend .evento__informacion;
+            height: 85%;
+        }
 
     }
 
@@ -102,5 +106,15 @@
 
     &__autor-nombre{
         font-weight: v.$bold;
+    }
+
+    &__agregar{
+        @include m.boton(v.$blanco, v.$negro);
+        margin-top: 1rem;
+
+        &:disabled{
+            opacity: .5;
+            cursor: not-allowed;
+        }
     }
 }

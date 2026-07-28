@@ -126,6 +126,30 @@ INSERT INTO `horas` VALUES (1,'10:00 - 10:55'),(2,'11:00 - 11:55'),(3,'12:00 - 1
 UNLOCK TABLES;
 
 --
+-- Table structure for table `paquetes`
+--
+
+DROP TABLE IF EXISTS `paquetes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `paquetes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `paquetes`
+--
+
+LOCK TABLES `paquetes` WRITE;
+/*!40000 ALTER TABLE `paquetes` DISABLE KEYS */;
+INSERT INTO `paquetes` VALUES (1,'Presencial'),(2,'Virtual'),(3,'Gratis');
+/*!40000 ALTER TABLE `paquetes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `ponentes`
 --
 
@@ -156,6 +180,64 @@ INSERT INTO `ponentes` VALUES (2,' Julian','Muñoz','Madrid','Españá','27afc43
 UNLOCK TABLES;
 
 --
+-- Table structure for table `regalos`
+--
+
+DROP TABLE IF EXISTS `regalos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `regalos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `regalos`
+--
+
+LOCK TABLES `regalos` WRITE;
+/*!40000 ALTER TABLE `regalos` DISABLE KEYS */;
+INSERT INTO `regalos` VALUES (1,'Paquete Stickers'),(2,'Camisa Mujer - Chica'),(3,'Camisa Mujer - Mediana'),(4,'Camisa Mujer - Grande'),(5,'Camisa Mujer - XL'),(6,'Camisa Hombre - Chica'),(7,'Camisa Hombre - Mediana'),(8,'Camisa Hombre - Grande'),(9,'Camisa Hombre - XL');
+/*!40000 ALTER TABLE `regalos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `registros`
+--
+
+DROP TABLE IF EXISTS `registros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `registros` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `paquete_id` int DEFAULT NULL,
+  `pago_id` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `token` varchar(8) DEFAULT NULL,
+  `usuario_id` int DEFAULT NULL,
+  `regalos_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `registros_ibfk_1_idx` (`usuario_id`),
+  KEY `registros_ibfk_2_idx` (`paquete_id`),
+  KEY `registros_ibk_3_idx` (`regalos_id`),
+  CONSTRAINT `registros_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `registros_ibfk_2` FOREIGN KEY (`paquete_id`) REFERENCES `paquetes` (`id`),
+  CONSTRAINT `registros_ibfk_3` FOREIGN KEY (`regalos_id`) REFERENCES `regalos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `registros`
+--
+
+LOCK TABLES `registros` WRITE;
+/*!40000 ALTER TABLE `registros` DISABLE KEYS */;
+INSERT INTO `registros` VALUES (1,1,'59f5625fe1d00746c','a3d6b387',1,NULL),(2,3,'','4c83ebb8',3,NULL),(3,1,'196a9c96e7f98e25a','33b351c6',1,NULL);
+/*!40000 ALTER TABLE `registros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usuarios`
 --
 
@@ -172,7 +254,7 @@ CREATE TABLE `usuarios` (
   `token` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `admin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +263,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,' Joel','castellanos','joel.adcascar@gmail.com','$2y$12$yJOOMtf7e6xUyHoYa5HRgucumSGlsoPJvfS07ugb40fkzPFs4pJL6',1,'',0),(2,' Adrian','Castellanos','correo@correo.com','$2y$12$oDqAiLXa1JN5InGw5Zv6qujXGLs/PvUKELishxVJttjVBws7TeWey',1,'',1);
+INSERT INTO `usuarios` VALUES (1,' Joel','castellanos','joel.adcascar@gmail.com','$2y$12$yJOOMtf7e6xUyHoYa5HRgucumSGlsoPJvfS07ugb40fkzPFs4pJL6',1,'',0),(2,' Adrian','Castellanos','correo@correo.com','$2y$12$oDqAiLXa1JN5InGw5Zv6qujXGLs/PvUKELishxVJttjVBws7TeWey',1,'',1),(3,' Sarai','Alpizar','saraial@gmail.com','$2y$12$jKr1fmqK/JokJRl7LXeyuOrMY1TSKBBTD6TzhIEgpYHEQOuNcy64y',1,'',0);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -194,4 +276,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-22  1:06:47
+-- Dump completed on 2026-07-27 23:56:12
