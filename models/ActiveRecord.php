@@ -164,6 +164,14 @@ class ActiveRecord
         return $resultado;
     }
 
+    // Método para retornar por orden y con un limite
+    public static function ordenarLimite($columna, $orden, $limite)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY $columna $orden LIMIT $limite;";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // Busqueda WHERE con multiples columnas
     public static function whereArray($array = [])
     {
@@ -199,8 +207,23 @@ class ActiveRecord
         return array_shift($total);
     }
 
+    // método para obtener el total de registros con un array where
+    public static function totalArray($array = [])
+    {
+        $query = 'SELECT COUNT(*) FROM ' . static::$tabla . " WHERE ";
+        foreach ($array as $p => $v) {
+            // Si la llave es igual a la llave final del arreglo no pongas el AND
+            if ($p === array_key_last($array)) {
+                $query .= "$p = $v;";
+            } else {
 
-
+                $query .= "$p = $v AND ";
+            }
+        };
+        $resultado = self::$db->query($query);
+        $total = $resultado->fetch_assoc();
+        return array_shift($total);
+    }
 
     // crea un nuevo registro
     public function crear()
