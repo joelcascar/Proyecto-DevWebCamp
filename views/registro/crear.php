@@ -26,7 +26,8 @@
             <p class="paquete__precio">$199</p>
 
             <form method="POST" action="/finalizar-registro/pagar">
-                <input type="submit" class="paquetes__submit" value="Inscripción Presencial">
+                <input type="hidden" name="paquete_id" value="1">
+                <input type="submit" class="paquetes__submit" value="Inscripción Pase Presencial">
             </form>
 
             <!-- <div id="paypal-container-JCFAE9FFDLQUJ"></div>
@@ -54,6 +55,11 @@
                 <li class="paquete__elemento">Acceso a las Grabaciones</li>
             </ul>
             <p class="paquete__precio">$49</p>
+
+            <form method="POST" action="/finalizar-registro/pagar">
+                <input type="hidden" name="paquete_id" value="2">
+                <input type="submit" class="paquetes__submit" value="Inscripción Pase Virtual">
+            </form>
 
             <!-- <div id="paypal-container-SDFBBHQW2TJ8G"></div> -->
             <!-- <script>
