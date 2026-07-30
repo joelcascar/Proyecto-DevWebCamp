@@ -49,11 +49,14 @@
     background-color: v.$gris-claro;
     padding: 3rem;
     border-radius: 1rem;
-    @include m.tablet{
-        flex: 0 0 40%;
-        position: --webkit-sticky;
-        position: sticky;
-        top: 3rem;
+
+    &--conferencias{
+        @include m.tablet{
+            flex: 0 0 40%;
+            position: --webkit-sticky;
+            position: sticky;
+            top: 3rem;
+        }
     }
 
     &__heading{

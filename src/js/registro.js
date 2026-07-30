@@ -124,7 +124,6 @@ import Swal from "sweetalert2";
         body: datos,
       });
       const resultado = await respuesta.json();
-      console.log(resultado);
       if (resultado.resultado) {
         Swal.fire({
           title: "Registro exitoso",

@@ -398,7 +398,7 @@ h3 {
   gap: 3rem;
   grid-template-columns: repeat(1, 1fr);
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .paquetes__grid {
     display: grid;
     gap: 3rem;
@@ -425,6 +425,7 @@ h3 {
 }
 .paquetes__submit {
   margin-top: 3rem;
+  width: 100%;
 }
 
 .paquete {
@@ -439,7 +440,7 @@ h3 {
 .paquete:nth-child(2) {
   order: -1;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .paquete:nth-child(2) {
     order: unset;
   }
@@ -1718,7 +1719,7 @@ h3 {
   border-radius: 1rem;
 }
 @media (min-width: 768px) {
-  .registro {
+  .registro--conferencias {
     flex: 0 0 40%;
     position: --webkit-sticky;
     position: sticky;

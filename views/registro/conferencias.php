@@ -35,7 +35,7 @@
             <?php } ?>
         </div>
     </main>
-    <aside class="registro">
+    <aside class="registro--conferencias">
         <h2 class="registro__heading">Tu registro</h2>
         <div id="registro-resumen" class="registro__resumen"></div>
         <div class="registro__regalo">

@@ -26,15 +26,15 @@ class RegistroController
 
         //Verificar si el usuario esta registrado
         $registro = Registro::where('usuario_id', $_SESSION['id']);
-        if (isset($registro) && $registro->paquete_id === '3' || $registro->paquete_id === '2') {
+        if (isset($registro) && ($registro->paquete_id === '3' || $registro->paquete_id === '2' || $registro->paquete_id === '1')) {
             header("location: /boleto?id=" . urlencode($registro->token));
             return;
         }
 
-        if (isset($registro) && $registro->paquete_id === '1') {
-            header('location: /finalizar-registro/conferencias');
-            return;
-        }
+        // if (isset($registro) && ) {
+        //     header('location: /finalizar-registro/conferencias');
+        //     return;
+        // }
 
 
         $router->render('registro/crear', [
@@ -117,10 +117,12 @@ class RegistroController
 
             // Verificar si el usuario esta registrado
             $registro = Registro::where('usuario_id', $_SESSION['id']);
-            if (isset($registro) && $registro->paquete_id === '1' || $registro->paquete_id === '2') {
+            if (isset($registro) && ($registro->paquete_id === '1' || $registro->paquete_id === '2')) {
                 header("location: /boleto?id=" . urlencode($registro->token));
                 return;
             }
+
+
 
             $token = substr(md5(uniqid(rand(), true)), 0, 8);
             $pago_id = substr(md5(uniqid(rand(), true)), 0, 17);
@@ -148,6 +150,7 @@ class RegistroController
             // $datos['usuario_id'] = $_SESSION['id'];
 
             $registro = new Registro($datos);
+
             $resultado = $registro->guardar();
             if ($resultado) {
                 header('location: /finalizar-registro/conferencias');
@@ -173,14 +176,8 @@ class RegistroController
             return;
         }
 
-        if ($registro->paquete_id !== '1') {
+        if (isset($registro) && $registro->paquete_id !== '1') {
             header('location: /');
-            return;
-        }
-
-        // Redireccionar a boleto virtual en caso de haber finalizado su registro
-        if (isset($registro->regalo_id) && $registro->paquete_id === '1') {
-            header("location: /boleto?id=" . urlencode($registro->token));
             return;
         }
 
@@ -227,6 +224,7 @@ class RegistroController
             }
 
             $eventos = explode(',', $_POST['eventos']);
+
 
             // validación
             if (empty($eventos)) {
